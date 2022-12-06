@@ -1,2 +1,2 @@
-# ha_rfm_gateway
+# RFM Gateway
 RFM Gateway component for Home Assistant
