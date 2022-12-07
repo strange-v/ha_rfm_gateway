@@ -1,4 +1,3 @@
 {
-    "name": "RFM Gateway",
-    "domains": ["sensor"]
+    "name": "RFM Gateway"
 }
