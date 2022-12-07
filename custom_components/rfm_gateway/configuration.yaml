@@ -1,0 +1,6 @@
+sensor:
+  - platform: rfm_gateway
+    gateways:
+      - mac: mac_address
+        name: RFM Gateway
+      - mac: mac_address

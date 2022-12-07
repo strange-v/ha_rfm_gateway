@@ -1,0 +1,11 @@
+{
+  "domain": "rfm_gateway",
+  "name": "RFM Gateway",
+  "config_flow": true,
+  "integration_type": "hub",
+  "dependencies": ["mqtt"],
+  "codeowners": ["@strange_v"],
+  "documentation": "https://github.com/strange-v/ha_rfm_gateway",
+  "requirements": [],
+  "iot_class": "local_push"
+}
