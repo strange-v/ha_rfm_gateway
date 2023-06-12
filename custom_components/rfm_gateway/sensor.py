@@ -25,6 +25,7 @@ from .const import DOMAIN, MACUFACTURER, NODE_TOPIC, STORE
 
 _LOGGER = logging.getLogger(__name__)
 
+store = {}
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -43,13 +44,14 @@ async def async_setup_entry(
         if not gateway:
             return
 
-        store = config[STORE]
+        # store = config[STORE]
         sensors = compose_node_entities(gateway_id, data)
         for sensor in sensors:
-            if sensor.unique_id not in store:
+            unique_id = sensor.unique_id.replace(':', '_')
+            if unique_id not in store:
                 sensor.hass = hass
                 sensor.async_update_value(data)
-                store[sensor.unique_id] = sensor
+                store[unique_id] = sensor
                 _LOGGER.debug(
                     "Registering sensor %(name)s => %(unique_id)s",
                     {"name": sensor.name, "unique_id": sensor.unique_id},
@@ -60,7 +62,7 @@ async def async_setup_entry(
                     "Updating sensor %(name)s => %(unique_id)s",
                     {"name": sensor.name, "unique_id": sensor.unique_id},
                 )
-                store[sensor.unique_id].async_update_value(data)
+                store[unique_id].async_update_value(data)
 
     await mqtt.async_subscribe(
         hass, NODE_TOPIC, async_sensor_event_received, qos=0, encoding=None
@@ -84,15 +86,17 @@ async def async_setup_platform(
         if not gateway:
             return
 
-        if (store := hass.data.get(DOMAIN)) is None:
-            store = hass.data[DOMAIN] = {}
+        # if (store := hass.data.get(DOMAIN)) is None:
+        #     hass.data.setdefault(DOMAIN, {})
+        #     store = hass.data.get(DOMAIN)
 
         sensors = compose_node_entities(gateway, data)
         for sensor in sensors:
-            if sensor.unique_id not in store:
+            unique_id = sensor.unique_id.replace(':', '_')
+            if unique_id not in store:
                 sensor.hass = hass
                 sensor.async_update_value(data)
-                store[sensor.unique_id] = sensor
+                store[unique_id] = sensor
                 _LOGGER.debug(
                     "Registering sensor %(name)s => %(unique_id)s",
                     {"name": sensor.name, "unique_id": sensor.unique_id},
@@ -103,7 +107,7 @@ async def async_setup_platform(
                     "Updating sensor %(name)s => %(unique_id)s",
                     {"name": sensor.name, "unique_id": sensor.unique_id},
                 )
-                store[sensor.unique_id].async_update_value(data)
+                store[unique_id].async_update_value(data)
 
     await mqtt.async_subscribe(
         hass, NODE_TOPIC, async_sensor_event_received, qos=0, encoding=None
