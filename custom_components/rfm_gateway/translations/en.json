@@ -1,19 +1,19 @@
 {
     "config": {
-      "error": {
-        "invalid_mac": "The MAC address format is invalid, it should be `xx:xx:xx:xx:xx:xx`.",
-        "mac_not_unique": "You have already added a gateway with such MAC address."
-      },
-      "step": {
-        "user": {
-          "data": {
-            "add_another": "Add another gateway?",
-            "mac": "MAC address.",
-            "name": "Name of the gateway."
-          },
-          "description": "Add a gateway, check the box to add another.",
-          "title": "Add Gateway"
+        "error": {
+            "invalid_mac": "The MAC address format is invalid, it should be `xx:xx:xx:xx:xx:xx`.",
+            "mac_not_unique": "You have already added a gateway with such MAC address."
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "add_another": "Add another gateway?",
+                    "mac": "MAC address.",
+                    "name": "Name of the gateway."
+                },
+                "description": "Add a gateway, check the box to add another.",
+                "title": "Add Gateway"
+            }
         }
-      }
     }
-  }
+}
