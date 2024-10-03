@@ -110,6 +110,7 @@ SENSOR_DESCRIPTIONS = {
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
         suggested_display_precision=0,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorDeviceClass.VOLTAGE: NodeSensorEntityDescription(
         key="Vcc",
@@ -117,6 +118,7 @@ SENSOR_DESCRIPTIONS = {
         device_class=SensorDeviceClass.VOLTAGE,
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         suggested_display_precision=2,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorDeviceClass.TEMPERATURE: NodeSensorEntityDescription(
         key="Temperature",
@@ -124,6 +126,7 @@ SENSOR_DESCRIPTIONS = {
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         suggested_display_precision=1,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorDeviceClass.HUMIDITY: NodeSensorEntityDescription(
         key="Humidity",
@@ -131,6 +134,7 @@ SENSOR_DESCRIPTIONS = {
         device_class=SensorDeviceClass.HUMIDITY,
         native_unit_of_measurement=PERCENTAGE,
         suggested_display_precision=0,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorDeviceClass.PRESSURE: NodeSensorEntityDescription(
         key="Presssure",
@@ -138,22 +142,23 @@ SENSOR_DESCRIPTIONS = {
         device_class=SensorDeviceClass.PRESSURE,
         native_unit_of_measurement=UnitOfPressure.MMHG,
         suggested_display_precision=0,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     SensorDeviceClass.GAS: NodeSensorEntityDescription(
         key="Gas consumption",
         name="Gas consumption",
         device_class=SensorDeviceClass.GAS,
-        state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         suggested_display_precision=2,
+        state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     SensorDeviceClass.WATER: NodeSensorEntityDescription(
         key="Water consumption",
         name="Water consumption",
         device_class=SensorDeviceClass.WATER,
-        state_class=SensorStateClass.TOTAL_INCREASING,
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         suggested_display_precision=2,
+        state_class=SensorStateClass.TOTAL_INCREASING,
     ),
 }
 
