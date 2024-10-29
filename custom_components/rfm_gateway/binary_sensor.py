@@ -57,7 +57,7 @@ class NodeBinarySensor(BinarySensorEntity):
         device_class = self.entity_description.device_class
         value = get_binary_sensor_value(data, device_class)
 
-        if not value:
+        if value is None:
             return
 
         self._attr_is_on = value
