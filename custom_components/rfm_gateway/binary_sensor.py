@@ -65,7 +65,7 @@ class NodeBinarySensor(BinarySensorEntity):
 
 
 NODE_BINARY_SENSORS = {
-    13: [
+    21: [
         BinarySensorDeviceClass.DOOR,
     ],
 }
