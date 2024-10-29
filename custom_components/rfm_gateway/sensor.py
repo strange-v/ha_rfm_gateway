@@ -102,6 +102,10 @@ NODE_SENSORS = {
         SensorDeviceClass.VOLTAGE,
         SensorDeviceClass.WATER,
     ],
+    21: [
+        SensorDeviceClass.SIGNAL_STRENGTH,
+        SensorDeviceClass.VOLTAGE,
+    ],
 }
 SENSOR_DESCRIPTIONS = {
     SensorDeviceClass.SIGNAL_STRENGTH: NodeSensorEntityDescription(
